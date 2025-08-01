@@ -46,4 +46,33 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // Add these relationships to your existing User model
+
+    public function ownedGroups()
+    {
+        return $this->hasMany(Group::class, 'owner_id');
+    }
+
+    public function groups()
+    {
+        return $this->belongsToMany(Group::class, 'group_members')
+            ->withPivot('joined_at', 'is_active', 'role')
+            ->withTimestamps();
+    }
+
+    public function activeGroups()
+    {
+        return $this->groups()->wherePivot('is_active', true);
+    }
+
+    public function picks()
+    {
+        return $this->hasMany(Pick::class);
+    }
+
+    public function groupMemberships()
+    {
+        return $this->hasMany(GroupMember::class);
+    }
 }

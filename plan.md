@@ -23,37 +23,37 @@
 - [✓] Configure Sanctum token authentication for API
 
 #### 2. Livewire Installation & Setup
-- [ ] Install Livewire
+- [✓] Install Livewire
   ```bash
   composer require livewire/livewire
   php artisan livewire:publish --config
   ```
-- [ ] Set up main layout with Livewire scripts
-- [ ] Install Alpine.js via CDN or npm
-- [ ] Configure Tailwind CSS for styling
+- [✓] Set up main layout with Livewire scripts
+- [✓] Install Alpine.js via CDN or npm
+- [✓] Configure Tailwind CSS for styling
   ```bash
   npm install -D tailwindcss postcss autoprefixer
   npx tailwindcss init -p
   ```
 
 #### 3. Database Schema Design
-- [ ] Create users table migration (extend default if needed)
+- [✓] Create users table migration (extend default if needed)
   ```bash
   php artisan make:migration add_fields_to_users_table
   ```
-- [ ] Create groups table migration
+- [✓] Create groups table migration
   ```bash
   php artisan make:migration create_groups_table
   ```
-- [ ] Create games table migration
+- [✓] Create games table migration
   ```bash
   php artisan make:migration create_games_table
   ```
-- [ ] Create picks table migration
+- [✓] Create picks table migration
   ```bash
   php artisan make:migration create_picks_table
   ```
-- [ ] Create group_members table migration
+- [✓] Create group_members table migration
   ```bash
   php artisan make:migration create_group_members_table
   ```
