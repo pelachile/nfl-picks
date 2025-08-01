@@ -19,8 +19,8 @@
 - [✓] Create user registration form view
 - [✓] Create user login form view  
 - [✓] Set up password reset functionality
-- [ ] Configure session authentication for web
-- [ ] Configure Sanctum token authentication for API
+- [✓] Configure session authentication for web
+- [✓] Configure Sanctum token authentication for API
 
 #### 2. Livewire Installation & Setup
 - [ ] Install Livewire
