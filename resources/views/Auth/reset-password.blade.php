@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Login - NFL Picks App</title>
+    <title>Reset Password - NFL Picks App</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -12,15 +12,18 @@
     <div class="max-w-md w-full space-y-8">
         <div>
             <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
-                Sign in to your account
+                Reset your password
             </h2>
             <p class="mt-2 text-center text-sm text-gray-600">
-                Continue your NFL picks journey
+                Enter your new password below
             </p>
         </div>
 
-        <form class="mt-8 space-y-6" method="POST" action="{{ route('login') }}">
+        <form class="mt-8 space-y-6" method="POST" action="{{ route('password.update') }}">
             @csrf
+
+            <!-- Password Reset Token -->
+            <input type="hidden" name="token" value="{{ $token }}">
 
             <div class="space-y-4">
                 <div>
@@ -31,7 +34,7 @@
                         type="email"
                         id="email"
                         name="email"
-                        value="{{ old('email') }}"
+                        value="{{ old('email', $email) }}"
                         required
                         autofocus
                         class="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm @error('email') border-red-500 @enderror"
@@ -44,7 +47,7 @@
 
                 <div>
                     <label for="password" class="block text-sm font-medium text-gray-700">
-                        Password
+                        New Password
                     </label>
                     <input
                         type="password"
@@ -52,31 +55,25 @@
                         name="password"
                         required
                         class="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm @error('password') border-red-500 @enderror"
-                        placeholder="Enter your password"
+                        placeholder="Enter your new password"
                     >
                     @error('password')
                         <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                     @enderror
                 </div>
-            </div>
 
-            <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                    <input
-                        id="remember"
-                        name="remember"
-                        type="checkbox"
-                        class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                    >
-                    <label for="remember" class="ml-2 block text-sm text-gray-900">
-                        Remember me
+                <div>
+                    <label for="password_confirmation" class="block text-sm font-medium text-gray-700">
+                        Confirm New Password
                     </label>
-                </div>
-
-                <div class="text-sm">
-                    <a href="{{ route('password.request') }}" class="font-medium text-blue-600 hover:text-blue-500 transition duration-150 ease-in-out">
-                        Forgot your password?
-                    </a>
+                    <input
+                        type="password"
+                        id="password_confirmation"
+                        name="password_confirmation"
+                        required
+                        class="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+                        placeholder="Confirm your new password"
+                    >
                 </div>
             </div>
 
@@ -85,17 +82,8 @@
                     type="submit"
                     class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out"
                 >
-                    Sign in
+                    Reset Password
                 </button>
-            </div>
-
-            <div class="text-center">
-                <p class="text-sm text-gray-600">
-                    Don't have an account?
-                    <a href="{{ route('register') }}" class="font-medium text-blue-600 hover:text-blue-500 transition duration-150 ease-in-out">
-                        Create one here
-                    </a>
-                </p>
             </div>
         </form>
     </div>
