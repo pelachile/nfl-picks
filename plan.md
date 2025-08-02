@@ -57,66 +57,66 @@
   ```bash
   php artisan make:migration create_group_members_table
   ```
-- [ ] Run migrations
+- [✓] Run migrations
   ```bash
   php artisan migrate
   ```
 
 #### 4. Core Models
-- [ ] Create Group model
+- [✓] Create Group model
   ```bash
   php artisan make:model Group
   ```
-- [ ] Create Game model
+- [✓] Create Game model
   ```bash
   php artisan make:model Game
   ```
-- [ ] Create Pick model
+- [✓] Create Pick model
   ```bash
   php artisan make:model Pick
   ```
-- [ ] Create GroupMember model
+- [✓] Create GroupMember model
   ```bash
   php artisan make:model GroupMember
   ```
-- [ ] Set up model relationships
-- [ ] Add model fillable fields and validation rules
+- [✓] Set up model relationships
+- [✓] Add model fillable fields and validation rules
 
 ### Week 3-4: NFL Integration & Game Management
 
 #### 5. NFL Data Service Architecture
-- [ ] Create NFL data service interface
+- [✓] Create NFL data service interface
   ```bash
   php artisan make:interface Contracts/NFLDataServiceInterface
   ```
-- [ ] Create Data Transfer Objects
+- [✓] Create Data Transfer Objects
   ```bash
   php artisan make:class DataObjects/GameData
   php artisan make:class DataObjects/TeamData
   ```
-- [ ] Create service provider
+- [✓] Create service provider
   ```bash
   php artisan make:provider NFLDataServiceProvider
   ```
-- [ ] Register service provider in `bootstrap/providers.php`
+- [✓] Register service provider in `bootstrap/providers.php`
 
 #### 6. ESPN API Integration with Saloon
-- [ ] Create ESPN Saloon connector
+- [✓] Create ESPN Saloon connector
   ```bash
   php artisan make:class Services/ESPN/ESPNConnector
   ```
-- [ ] Create ESPN request classes
+- [✓] Create ESPN request classes
   ```bash
   php artisan make:class Services/ESPN/Requests/GetCurrentWeekGames
   php artisan make:class Services/ESPN/Requests/GetGameDetails
   php artisan make:class Services/ESPN/Requests/GetScoreboard
   ```
-- [ ] Create ESPN NFL data service implementation
+- [✓] Create ESPN NFL data service implementation
   ```bash
   php artisan make:class Services/ESPN/ESPNNFLDataService
   ```
-- [ ] Test ESPN API integration
-- [ ] Create console command to fetch current week games
+- [✓] Test ESPN API integration
+- [✓] Create console command to fetch current week games
   ```bash
   php artisan make:command FetchCurrentWeekGames
   ```

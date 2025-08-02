@@ -150,21 +150,20 @@ class ESPNNFLDataService implements NFLDataServiceInterface
 
     public function getCurrentSeason(): int
     {
-        return 2024;
-        /* $now = now(); */
-        /**/
-        /* // NFL season spans two calendar years */
-        /* // Season starts in September of year X and ends in February of year X+1 */
-        /**/
-        /* if ($now->month >= 9) { */
-        /*     // September through December - current year season */
-        /*     return $now->year; */
-        /* } elseif ($now->month <= 2) { */
-        /*     // January through February - previous year's season */
-        /*     return $now->year - 1; */
-        /* } else { */
-        /*     // March through August - upcoming season (current year) */
-        /*     return $now->year; */
-        /* } */
+        $now = now();
+
+        // NFL season spans two calendar years
+        // Season starts in September of year X and ends in February of year X+1
+
+        if ($now->month >= 9) {
+            // September through December - current year season
+            return $now->year;
+        } elseif ($now->month <= 2) {
+            // January through February - previous year's season
+            return $now->year - 1;
+        } else {
+            // March through August - upcoming season (current year)
+            return $now->year;
+        }
     }
 }
