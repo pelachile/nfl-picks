@@ -9,12 +9,14 @@ class ESPNConnector extends Connector
 {
     use AcceptsJson;
 
+    protected string $baseUrl = 'https://sports.core.api.espn.com/v2/sports/football/leagues/nfl';
+
     /**
      * The Base URL of the API
      */
     public function resolveBaseUrl(): string
     {
-        return '';
+        return $this->baseUrl;
     }
 
     /**
@@ -22,14 +24,9 @@ class ESPNConnector extends Connector
      */
     protected function defaultHeaders(): array
     {
-        return [];
-    }
-
-    /**
-     * Default HTTP client options
-     */
-    protected function defaultConfig(): array
-    {
-        return [];
+        return [
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ];
     }
 }
